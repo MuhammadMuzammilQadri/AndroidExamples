@@ -1,0 +1,23 @@
+<resources>
+    <color name="white">#FFFFFF</color>
+
+    <string name="app_name">ArrayAdapterImplementation</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="description1"> I am description 1. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+    <string name="description2"> I am description 2. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+    <string name="description3"> I am description 3. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+    <string name="description4"> I am description 4. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+    <string name="description5"> I am description 5. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+    <string name="description6"> I am description 6. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+    <string name="description7"> I am description 7. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+    <string name="description8"> I am description 8. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+    <string name="description9"> I am description 9. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+    <string name="description10"> I am description 10. The quick brown fox jumps over the lazy dog. Hence use me properly.</string>
+
+
+
+
+</resources>
