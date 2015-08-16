@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+<Button
+    android:id="@+id/button"
+    android:text="Add"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+    <com.shiraz.panacloud.trellocards.LinearLayoutListView
+         android:id="@+id/list1Area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/list1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+      </com.shiraz.panacloud.trellocards.LinearLayoutListView>
+
+</LinearLayout>
