@@ -9,20 +9,45 @@ import android.util.Log;
 
 public class MyService extends Service {
 
-
-    private final CountDownTimer countDownTimer;
+    private static MyService sInstance;
+    private CountDownTimer countDownTimer;
     private long currentSeconds;
     private long counter=0;
     private MyBinder myBinder= new MyBinder();
+    private boolean isActivityStarted;
+    private Intent intentForBroadCastReceiver;
 
     public MyService() {
 
         Log.d("MuzammilQadri", "in MyService()");
 
-       countDownTimer= new CountDownTimer(7000, 1000) {
+    }
+
+    public void pauseCounter(){
+        if(countDownTimer!= null)
+            countDownTimer.cancel();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d("MuzammilQadri", "in onStartCommand()");
+
+        countDownTimer= new CountDownTimer(60000, 1000) {
+            {
+                Log.d("MuzammilQadri", "in Anonymous countDownTimer()");
+            }
             public void onTick(long millisUntilFinished) {
-                currentSeconds= (7000-millisUntilFinished)/1000;    //just for debugging
-                Log.d("MuzammilQadri",""+ millisUntilFinished + " "+currentSeconds+ " "+ ++counter);
+                counter++;
+
+                if(isActivityStarted)
+                {
+                    Log.d("MuzammilQadri", "in onTick if clause");
+                    MyService.this.sendBroadcast(intentForBroadCastReceiver);
+                }
+
+                //just for debugging
+                currentSeconds= (millisUntilFinished)/1000;
+                Log.d("MuzammilQadri", " "+currentSeconds+ " "+ counter);
 
             }
 
@@ -30,16 +55,44 @@ public class MyService extends Service {
                 this.start();
             }
         };
+        Log.d("MuzammilQadri", "Below countDownTimer in onStartCommand()");
 
         countDownTimer.start();
 
+        Log.d("MuzammilQadri", "Below countDownTimer.start() in onStartCommand()");
 
+//        stopSelf();
+//        return START_NOT_STICKY;
+        return START_STICKY;
+    }
+
+    @Override
+    public void onCreate() {
+        Log.d("MuzammilQadri", "in onCreate()");
+        sInstance=this;
+        super.onCreate();
+    }
+
+    public static MyService getInstance(){
+        return sInstance;
     }
 
     @Override
     public IBinder onBind(Intent intent) {
         Log.d("MuzammilQadri", "in onBind()");
+        isActivityStarted=true;
+
+        intentForBroadCastReceiver= new Intent();
+        intentForBroadCastReceiver.setAction("MyService_Broadcasting");
+
         return myBinder;
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.d("MuzammilQadri", "in onUnbind()");
+        isActivityStarted=false;
+        return super.onUnbind(intent);
     }
 
     public long getCurrentSeconds() {
@@ -48,6 +101,9 @@ public class MyService extends Service {
     }
 
     public class MyBinder extends Binder{
+        {
+            Log.d("MuzammilQadri", "in Class MyBinder()");
+        }
         MyService getService() {
             Log.d("MuzammilQadri", "in getService()");
             return MyService.this;
@@ -60,4 +116,5 @@ public class MyService extends Service {
         super.onDestroy();
 
     }
+
 }
