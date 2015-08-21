@@ -36,7 +36,6 @@ public class MainActivity extends ActionBarActivity {
         arrayList.add(String.valueOf(counter++));
         arrayList.add(String.valueOf(counter++));
 
-
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.singlerow, android.R.id.text1, arrayList);
 
