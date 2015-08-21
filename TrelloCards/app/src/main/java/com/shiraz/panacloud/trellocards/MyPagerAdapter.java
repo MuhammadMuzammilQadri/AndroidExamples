@@ -1,6 +1,5 @@
 package com.shiraz.panacloud.trellocards;
 
-import android.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
@@ -8,7 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  * Created by panacloud on 8/11/15.
  */
 public class MyPagerAdapter extends FragmentPagerAdapter {
-    private static int NUM_ITEMS = 4;
+    private static int NUM_ITEMS = 2;
 
     public MyPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
