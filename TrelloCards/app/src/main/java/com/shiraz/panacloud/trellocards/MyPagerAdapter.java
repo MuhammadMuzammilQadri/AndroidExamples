@@ -1,6 +1,5 @@
 package com.shiraz.panacloud.trellocards;
 
-import android.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 

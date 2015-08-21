@@ -1,18 +1,15 @@
 package com.shiraz.panacloud.trelloactionbutton;
 
-import android.media.Image;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -141,9 +138,70 @@ public class MainActivity extends ActionBarActivity {
             menuAnimation = AnimationUtils.loadAnimation(this, R.anim.fab_scale_up);
             Animation slide_in = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_bottom);
             slide_in.setDuration(200);
+            Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.abc_fade_in);
+//For debugging
+
+//            ///////////////////////
+//            menuAnimation.setAnimationListener(new Animation.AnimationListener() {
+//                @Override
+//                public void onAnimationStart(Animation animation) {
+//                    Log.d("Muzammil","menuAnimation Start");
+//                }
+//
+//                @Override
+//                public void onAnimationEnd(Animation animation) {
+//                    Log.d("Muzammil","menuAnimation End");
+//
+//                }
+//
+//                @Override
+//                public void onAnimationRepeat(Animation animation) {
+//
+//                }
+//            });
+//                ///////////////////////
+//            slide_in.setAnimationListener(new Animation.AnimationListener() {
+//                @Override
+//                public void onAnimationStart(Animation animation) {
+//                    Log.d("Muzammil","slide_in Start");
+//                }
+//
+//                @Override
+//                public void onAnimationEnd(Animation animation) {
+//                    Log.d("Muzammil","slide_in End");
+//
+//                }
+//
+//                @Override
+//                public void onAnimationRepeat(Animation animation) {
+//
+//                }
+//            });
+//
+//            ///////////////////////
+//            fade_in.setAnimationListener(new Animation.AnimationListener() {
+//                @Override
+//                public void onAnimationStart(Animation animation) {
+//                    Log.d("Muzammil","fade_in Start");
+//                }
+//
+//                @Override
+//                public void onAnimationEnd(Animation animation) {
+//                    Log.d("Muzammil","fade_in End");
+//
+//                }
+//
+//                @Override
+//                public void onAnimationRepeat(Animation animation) {
+//
+//                }
+//            });
+
+
             animationSet.addAnimation(menuAnimation);
             animationSet.addAnimation(slide_in);
-            animationSet.addAnimation(AnimationUtils.loadAnimation(this, R.anim.abc_fade_in));
+            animationSet.addAnimation(fade_in);
+
             btn1.setVisibility(View.VISIBLE);
             btn2.setVisibility(View.VISIBLE);
             btn3.setVisibility(View.VISIBLE);
