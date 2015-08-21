@@ -6,7 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -23,7 +26,8 @@ public class MainActivity extends ActionBarActivity {
         mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"Pannel Clicked..",Toast.LENGTH_LONG).show();            }
+                Toast.makeText(MainActivity.this,"Pannel Clicked..",Toast.LENGTH_LONG).show();
+            }
         });
 
 
@@ -33,24 +37,24 @@ public class MainActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Fragment dialogFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.channel_select_panel);
+                AnimationSet animationSet = new AnimationSet(false);
+                Animation animation2 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.abc_fade_in);
+                Animation animation3 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.abc_slide_in_bottom);
+                animation3.setDuration(200);
 
-                Animation dAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.dialog_bottom);
-                dAnimation.setAnimationListener(new Animation.AnimationListener() {
+                animationSet.addAnimation(animation2);
+                animationSet.addAnimation(animation3);
+
+                animationSet.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
+                        mView.setVisibility(View.VISIBLE);
 
                     }
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        mView.bringToFront();
-                        mView.requestFocus();
-//                        cover.setVisibility(View.VISIBLE);
-
-//                        mView.bringToFront();
-//                        mView.requestFocus();
-
+                        cover.setVisibility(View.VISIBLE);
                     }
 
                     @Override
@@ -58,9 +62,8 @@ public class MainActivity extends ActionBarActivity {
 
                     }
                 });
-                dAnimation.setFillEnabled(true);
-                dAnimation.setFillAfter(true);
-                mView.startAnimation(dAnimation);
+
+                mView.startAnimation(animationSet);
 
             }
         });
@@ -69,41 +72,37 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this,"Cover Clicked..",Toast.LENGTH_LONG).show();
-                Animation dAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.dialog_top);
-                dAnimation.setFillEnabled(true);
-                dAnimation.setFillAfter(true);
-                mView.startAnimation(dAnimation);
-//                cover.setVisibility(View.GONE);
+                AnimationSet animationSet = new AnimationSet(false);
+                Animation animation2 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.abc_fade_out);
+                Animation animation3 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.abc_slide_out_bottom);
+                animation2.setDuration(300);
+                animation3.setDuration(200);
+
+                animationSet.addAnimation(animation2);
+                animationSet.addAnimation(animation3);
+
+                animationSet.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        cover.setVisibility(View.GONE);
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        mView.setVisibility(View.GONE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+
+                mView.startAnimation(animationSet);
 
             }
-
-
-            }
-        );
-
-
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        });
     }
 }
