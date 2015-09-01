@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+   tools:context=".MainActivity">
+
+
+
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:rotation="45"
+        android:background="@drawable/muz"
+        android:layout_alignBottom="@+id/calender"
+        android:layout_alignRight="@+id/calender"
+        android:layout_alignEnd="@+id/calender"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="-7.5dp"/>
+
+    <CalendarView
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/calender"
+        android:layout_margin="10dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@drawable/calendershape"/>
+
+
+</RelativeLayout>
