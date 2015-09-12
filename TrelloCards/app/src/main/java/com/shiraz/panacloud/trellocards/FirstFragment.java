@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,13 +97,15 @@ public class FirstFragment extends Fragment {
 
                 switch (event.getAction()) {
                     case DragEvent.ACTION_DRAG_STARTED:
+                        Log.d("ACTION_DRAG_STARTED:", "ACTION_DRAG_STARTED");
 //                        prompt.append("ACTION_DRAG_STARTED: " + area  + "\n");
                         break;
                     case DragEvent.ACTION_DRAG_ENTERED:
-
+                        Log.d("ACTION_DRAG_ENTERED:", "ACTION_DRAG_ENTERED");
 //                        prompt.append("ACTION_DRAG_ENTERED: " + area  + "\n");
                         break;
                     case DragEvent.ACTION_DRAG_EXITED:
+                        Log.d("ACTION_DRAG_EXITED:", "ACTION_DRAG_EXITED");
                         float  width = (listView1.getWidth())/3;
                         if (event.getX() > width){
                             MainActivity.vpPager.setCurrentItem(1,true);
@@ -114,6 +117,7 @@ public class FirstFragment extends Fragment {
 //                        prompt.append("ACTION_DRAG_EXITED: " + area  + "\n");
                         break;
                     case DragEvent.ACTION_DROP:
+                        Log.d("ACTION_DROP:", "ACTION_DROP");
 //                        prompt.append("ACTION_DROP: " + area  + "\n");
 
                         PassObject passObj = (PassObject) event.getLocalState();
@@ -139,7 +143,7 @@ public class FirstFragment extends Fragment {
 
                         break;
                     case DragEvent.ACTION_DRAG_ENDED:
-
+                        Log.d("ACTION_DRAG_ENDED:", "ACTION_DRAG_ENDED");
 
 //                        prompt.append("ACTION_DRAG_ENDED: " + area  + "\n");
                     default:
