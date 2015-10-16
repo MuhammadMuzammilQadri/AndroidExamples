@@ -46,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void success(Result<String> result) {
                         // Do something with the result, which provides the email address
-                        Toast.makeText(MainActivity.this,"good",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,result.data,Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
