@@ -14,6 +14,8 @@ import android.widget.Toast;
 public class SmsReceiver extends BroadcastReceiver {
 
     public static final String ACTION = "android.provider.Telephony.SMS_RECEIVED";
+    private OnSmsReceivelistener mListener = null;
+
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -35,11 +37,24 @@ public class SmsReceiver extends BroadcastReceiver {
                     String MessageBody = message.getMessageBody();
 
                     Toast.makeText(context,"From:"+MessageFrom+" .."+"Msg:"+MessageBody,Toast.LENGTH_SHORT).show();
+
+
+                    mListener = (OnSmsReceivelistener) context;
+                    mListener.onSmsReceived(MessageBody,MessageFrom);
                 }
+
+
+
+
              }
         }
 
 
 
+    }
+
+
+    public interface OnSmsReceivelistener{
+        public void onSmsReceived(String msg,String num);
     }
 }

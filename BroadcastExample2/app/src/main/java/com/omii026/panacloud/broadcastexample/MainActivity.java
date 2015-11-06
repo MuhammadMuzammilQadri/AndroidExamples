@@ -1,5 +1,6 @@
 package com.omii026.panacloud.broadcastexample;
 
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,14 +8,29 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity
+        implements SmsReceiver.OnSmsReceivelistener{
+
+    private TextView msgFrom;
+    private TextView msgBody;
+    Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
+
+
 
 //        Intent intent = new Intent();
 //        intent.setAction("Umair");
@@ -44,5 +60,32 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSmsReceived(String msg, String num) {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_view);
+
+        msgFrom = (TextView) dialog.findViewById(R.id.msgFrom);
+        msgBody = (TextView) dialog.findViewById(R.id.msgBody);
+
+        dialog.setCancelable(false);
+        msgBody.setText(msg);
+        msgFrom.setText(num);
+
+        ((Button) dialog.findViewById(R.id.cancel)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
+
+
+
     }
 }
