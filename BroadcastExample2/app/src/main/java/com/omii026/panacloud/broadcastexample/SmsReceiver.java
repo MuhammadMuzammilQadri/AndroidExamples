@@ -36,11 +36,15 @@ public class SmsReceiver extends BroadcastReceiver {
                     String MessageFrom = message.getDisplayOriginatingAddress();
                     String MessageBody = message.getMessageBody();
 
-                    Toast.makeText(context,"From:"+MessageFrom+" .."+"Msg:"+MessageBody,Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context,"From:"+MessageFrom+" .."+"Msg:"+MessageBody,Toast.LENGTH_SHORT).show();
+
+                    Intent i = new Intent("SmsBroadcast");
+                    i.putExtra("message",MessageBody);
+                    i.putExtra("messageFrom",MessageFrom);
+
+                    context.sendBroadcast(i);
 
 
-                    mListener = (OnSmsReceivelistener) context;
-                    mListener.onSmsReceived(MessageBody,MessageFrom);
                 }
 
 
@@ -52,6 +56,8 @@ public class SmsReceiver extends BroadcastReceiver {
 
 
     }
+
+
 
 
     public interface OnSmsReceivelistener{

@@ -2,14 +2,18 @@ package com.omii026.panacloud.broadcastexample;
 
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -27,7 +31,7 @@ public class MainActivity extends ActionBarActivity
         setContentView(R.layout.activity_main);
 
 
-
+        registerReceiver(broadcastReceiver, new IntentFilter("SmsBroadcast"));
 
 
 
@@ -37,6 +41,19 @@ public class MainActivity extends ActionBarActivity
 //        sendBroadcast(intent);
     }
 
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            Bundle i = intent.getExtras();
+            String message = i.getString("message");
+            String messageFrom = i.getString("messageFrom");
+
+            Toast.makeText(context, "From:" + messageFrom + " .." + "Msg:" + message, Toast.LENGTH_SHORT).show();
+
+            Log.d("received",""+message);
+        }
+    };
 
 
 
@@ -71,18 +88,22 @@ public class MainActivity extends ActionBarActivity
         msgFrom = (TextView) dialog.findViewById(R.id.msgFrom);
         msgBody = (TextView) dialog.findViewById(R.id.msgBody);
 
-        dialog.setCancelable(false);
-        msgBody.setText(msg);
-        msgFrom.setText(num);
 
-        ((Button) dialog.findViewById(R.id.cancel)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
 
-        dialog.show();
+//        registerReceiver(,new IntentFilter("SmsBroadcast"));
+
+//        dialog.setCancelable(false);
+//        msgBody.setText(msg);
+//        msgFrom.setText(num);
+//
+//        ((Button) dialog.findViewById(R.id.cancel)).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        dialog.show();
 
 
 
