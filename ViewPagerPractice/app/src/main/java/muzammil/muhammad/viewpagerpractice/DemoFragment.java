@@ -19,6 +19,8 @@ public class DemoFragment extends Fragment {
         Bundle b = new Bundle();
         b.putString("msg", text);
 
+
+
         f.setArguments(b);
 
         return f;
