@@ -12,6 +12,7 @@ public class YahooLikePageTransformer implements ViewPager.PageTransformer {
     public void transformPage(View view, float position) {
         int pageWidth = view.getWidth();
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+        if(imageView != null)
         imageView.setTranslationX(-position * (pageWidth / 2)); //Half the normal speed
     }
 }
