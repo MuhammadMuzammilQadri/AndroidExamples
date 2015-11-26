@@ -110,10 +110,11 @@ public class MainActivity extends FragmentActivity {
     }
 
     private static void AddTabsInTabLayout(TabLayout tabLayout) {
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"),0,true);
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 2"),1);
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"),2);
+        tabLayout.addTab(tabLayout.newTab().setText("News"),0);
+        tabLayout.addTab(tabLayout.newTab().setText("Settings"),1);
+        tabLayout.addTab(tabLayout.newTab().setText("Factory"),2);
         tabLayout.addTab(tabLayout.newTab().setText("     "),3);
+        tabLayout.getTabAt(0).select();
 
     }
 
