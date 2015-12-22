@@ -33,25 +33,17 @@ public class MainActivity extends FragmentActivity {
         AddTabsInTabLayout(tabLayout);
 //        tabLayout.setupWithViewPager(mPager); //Cant use it, because we have to manipulate tabs differently..
         SetupTabStrip(tabLayout);
+//        tabLayout.animate()
         ImplementSetOnTabSelectedListener(mPager, tabLayout);
         ImplementAddOnPageChangeListener(mPager, tabLayout);
+
     }
 
     private static void ImplementAddOnPageChangeListener(ViewPager mPager, final TabLayout tabLayout) {
-        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
             @Override
-            public void onPageScrolled(int i, float v, int i2) {
-
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-                tabLayout.getTabAt(i).select();
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
+            public void onPageSelected(int position) {
+                tabLayout.getTabAt(position).select();
             }
         });
     }

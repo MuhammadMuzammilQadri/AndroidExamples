@@ -44,29 +44,20 @@ public class CustomTabLayout extends TabLayout {
             e.printStackTrace();
         }
 
-        //            mContentInsetStart
         try {
             Field mContentInsetStartField = null;
 
-//            mContentInsetStartField =android.support.design.R.styleable.class.getDeclaredField("TabLayout_tabContentStart");
             mContentInsetStartField =TabLayout.class.getDeclaredField("mContentInsetStart"); //Reflection intro -- http://docs.oracle.com/javase/tutorial/reflect/index.html
             Method reflectMethod= TabLayout.class.getDeclaredMethod("applyModeAndGravity");  //Reflection intro -- http://stackoverflow.com/questions/37628/what-is-reflection-and-why-is-it-useful
-
-                Field tempField = TabLayout.class.getDeclaredField("mTabMaxWidth");
-                tempField.setAccessible(true);
-                int temp = tempField.getInt(this);
-                Log.e("MuzammilQadri", "temp: " + temp);
-
+//                Field tempField = TabLayout.class.getDeclaredField("mTabMaxWidth");
+//                tempField.setAccessible(true);
+//                int temp = tempField.getInt(this);
             DisplayMetrics displaymetrics = new DisplayMetrics();
-            ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);‌​
-            int height = displaymetrics.heightPixels;
+            ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
             int width = displaymetrics.widthPixels;
 
-//            Display display = Activity.getWindowManager().getDefaultDisplay();
-//            int width = display.getWidth();  // deprecated
-
             mContentInsetStartField.setAccessible(true);
-            mContentInsetStartField.set(this, width/2 - temp);
+            mContentInsetStartField.set(this, width/3);
 
             try {
                 reflectMethod.setAccessible(true);
