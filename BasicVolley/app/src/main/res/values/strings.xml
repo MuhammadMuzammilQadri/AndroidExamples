@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Basic Volley</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="request_url1">http://members.almeezangroup.com:8088/api/customer</string>
+    <string name="request_url2">http://members.almeezangroup.com:8088/api/customerdetail</string>
+    <string name="CustomerName">Usman</string>
+    <string name="Customerid">130734</string>
+
+</resources>
