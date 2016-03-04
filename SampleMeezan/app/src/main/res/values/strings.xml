@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SampleMeezan</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="request_url0">https://members.almeezangroup.com/webapi/api/customerlogin</string>
+    <string name="request_url1">http://members.almeezangroup.com:8088/api/customer</string>
+    <string name="request_url2">http://members.almeezangroup.com:8088/api/customerdetail</string>
+    <string name="send_data_url">https://members.almeezangroup.com/webapi/api/customerinvestment</string>
+    <string name="send_data_string">IJNK5JcNFW1BZjugLErzu9H5uYUEgc3H6Vdd7/EMREBqGWEmFl86PsL4VLG6DoVi</string>
+    <string name="send_data_key">keyvalue</string>
+    <string name="CustomerName">Usman</string>
+    <string name="Customerid">104997</string>
+    <string name="password">Today123</string>
+
+</resources>
