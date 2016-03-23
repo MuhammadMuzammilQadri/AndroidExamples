@@ -24,7 +24,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements Frag1.changeImageListener{
 
     private Button btn1;
-    private ImageView image1,image2;
+    private ImageView image1,image2,image3,image4;
     private FloatingActionButton fab;
     private boolean c;
     private ViewGroup viewGroup;
@@ -38,31 +38,206 @@ public class MainActivity extends AppCompatActivity implements Frag1.changeImage
         setSupportActionBar(toolbar);
 
 //        getSupportFragmentManager().beginTransaction().add(R.id.contain,new Frag1()).addToBackStack(null).commit();
-
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         btn1 = (Button) findViewById(R.id.btn1);
         image1 = (ImageView) findViewById(R.id.image1);
         image2 = (ImageView) findViewById(R.id.image2);
+        image3 = (ImageView) findViewById(R.id.image3);
+        image4 = (ImageView) findViewById(R.id.image4);
+
         final Button btn2 = (Button) findViewById(R.id.btn2);
         textView = (TextView) findViewById(R.id.textView);
 
-//        //with example #7
-//        LayoutTransition layoutTransition = new LayoutTransition();
-//        layoutTransition.enableTransitionType(LayoutTransition.CHANGING);
-//        viewGroup = (ViewGroup) findViewById(R.id.container);
-//        viewGroup.setLayoutTransition(layoutTransition);
+//        example1();       //example #1     change content_main.xml to content_main in activity_main
+//        example2();       //example #2     change content_main.xml to content_main in activity_main
+//        example3();       //example #3     change content_main.xml to content_main in activity_main
+//        example4();       //example #4     change content_main.xml to content_main2 in activity_main
+//        example5();       //example #5     change content_main.xml to content_main2 in activity_main
+//        example6();       //example #6     change content_main.xml to content_main2 in activity_main
+//        example7();       //example #7     change content_main.xml to content_main3 in activity_main
+//        example8();       //example #8     change content_main.xml to content_main3 in activity_main
+//        example9();       //example #9     change content_main.xml to content_main4 in activity_main
+//        example10();      //example #10    change content_main.xml to content_main5 in activity_main
+          example11();      //example #11    change content_main.xml to content_main2 in activity_main
 
-        //example #10  // change content_main.xml to content_main5 in activity_main
-
-
-
-        //example #8  // change content_main.xml to content_main3 in activity_main
-//        ObjectAnimator animator = ObjectAnimator.ofFloat(textView,"rotationY",0.0f,360f);
-//        animator.setDuration(3600);
-//        animator.setRepeatCount(ObjectAnimator.INFINITE);
-//        animator.start();
+    }
 
 
-        //example #9     change content_main.xml to content_main4 in activity_main
+
+    private void example1() {
+     //example #1
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                ObjectAnimator.ofFloat(btn1,"alpha",0f).start();
+//                btn1.animate().alpha(0);
+                if(c == false) {
+                    btn1.animate().alpha(1f).x(500).y(800).setDuration(1000);
+                    c= true;
+                }
+
+                else if(c == true){
+                    btn1.animate().alpha(1f).x(50).y(50).setDuration(1000);
+                    c=false;
+                }
+            }
+        });
+
+
+    }
+    private void example2() {
+
+        //example 2#
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ObjectAnimator animX = ObjectAnimator.ofFloat(btn1,"x",50f);
+                ObjectAnimator animY = ObjectAnimator.ofFloat(btn1,"y",100f);
+
+                AnimatorSet animSetXY = new AnimatorSet();
+                animSetXY.playTogether(animX,animY);
+                animSetXY.start();
+            }
+        });
+
+
+    }
+    private void example3() {
+
+
+        //example #3
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(c == false) {
+                    btn1.animate().alpha(1f).x(500).y(800).rotationYBy(720).setDuration(1000);
+                    c= true;
+                }
+
+                else if(c == true){
+                    btn1.animate().alpha(1f).x(50).y(50).rotationYBy(720).setDuration(1000);
+                    c=false;
+                }
+            }
+        });
+
+
+
+    }
+    private void example4() {
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(c == false) {
+//                    image1.animate().translationX(400).setDuration(1000).withLayer();
+                    image1.animate().translationX(400).withLayer();
+
+                    c= true;
+                }
+
+                else if(c == true){
+//                    image1.animate().translationX(50).setDuration(1000).withLayer();
+                    image1.animate().translationX(50).withLayer();
+                    c=false;
+                }
+
+            }
+        });
+
+
+    }
+    private void example5() {
+
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (c == false) {
+                    image1.animate().translationX(400).withStartAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            image2.setTranslationX(image1.getWidth());
+                        }
+                    });
+
+                    c = true;
+                } else if (c == true) {
+                    image1.animate().alpha(1f).x(50).y(50).setDuration(1000);
+                    image2.animate().alpha(1f).x(50).y(500).setDuration(1000);
+                    c = false;
+                }
+            }
+        });
+
+
+    }
+    private void example6() {
+
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (c == false) {
+                    image1.animate().translationX(400).withStartAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            image2.setTranslationX(image1.getWidth());
+                        }
+                    });
+
+                    c = true;
+                } else if (c == true) {
+                    image1.animate().alpha(1f).x(50).y(50).setDuration(1000);
+                    image2.animate().alpha(1f).x(50).y(500).setDuration(1000);
+                    c = false;
+                }
+
+            }
+        });
+
+
+    }
+    private void example7() {
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                LayoutTransition layoutTransition = new LayoutTransition();
+                layoutTransition.enableTransitionType(LayoutTransition.CHANGING);
+                viewGroup = (ViewGroup) findViewById(R.id.container);
+                viewGroup.setLayoutTransition(layoutTransition);
+                viewGroup.addView(new Button(MainActivity.this));
+            }
+        });
+
+
+    }
+    private void example8() {
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ObjectAnimator animator = ObjectAnimator.ofFloat(textView,"rotationY",0.0f,360f);
+                animator.setDuration(3600);
+                animator.setRepeatCount(ObjectAnimator.INFINITE);
+                animator.start();
+
+            }
+        });
+
+
+    }
+    private void example9() {
+
+
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,99 +300,43 @@ public class MainActivity extends AppCompatActivity implements Frag1.changeImage
         });
 
 
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+    }
+    private void example10() {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-//                ObjectAnimator.ofFloat(btn1,"alpha",0f).start();
-//                btn1.animate().alpha(0);
-
-                //example #1
-//                if(c == false) {
-//                    btn1.animate().alpha(1f).x(500).y(800).setDuration(1000);
-//                c= true;
-//                }
-//
-//                else if(c == true){
-//                    btn1.animate().alpha(1f).x(50).y(50).setDuration(1000);
-//                    c=false;
-//                }
-
-                //example 2#
-//                ObjectAnimator animX = ObjectAnimator.ofFloat(btn1,"x",50f);
-//                ObjectAnimator animY = ObjectAnimator.ofFloat(btn1,"y",100f);
-//
-//                AnimatorSet animSetXY = new AnimatorSet();
-//                animSetXY.playTogether(animX,animY);
-//                animSetXY.start();
-
-
-                //example #3
-//                if(c == false) {
-//                    btn1.animate().alpha(1f).x(500).y(800).rotationYBy(720).setDuration(1000);
-//                    c= true;
-//                }
-//
-//                else if(c == true){
-//                    btn1.animate().alpha(1f).x(50).y(50).rotationYBy(720).setDuration(1000);
-//                    c=false;
-//                }
-
-                //example #4     change content_main.xml to content_main2 in activity_main
-//                if(c == false) {
-////                    image1.animate().translationX(400).setDuration(1000).withLayer();
-//                    image1.animate().translationX(400).withLayer();
-//
-//                    c= true;
-//                }
-//
-//                else if(c == true){
-////                    image1.animate().translationX(50).setDuration(1000).withLayer();
-//                    image1.animate().translationX(50).withLayer();
-//                    c=false;
-//                }
-//
-
-                //example #5     change content_main.xml to content_main2 in activity_main
-//                if (c == false) {
-//                    image1.animate().translationX(400).withStartAction(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            image2.setTranslationX(image1.getWidth());
-//                        }
-//                    });
-//
-//                    c = true;
-//                } else if (c == true) {
-//                    image1.animate().alpha(1f).x(50).y(50).setDuration(1000);
-//                    image2.animate().alpha(1f).x(50).y(500).setDuration(1000);
-//                    c = false;
-//                }
-
-                //example #6     change content_main.xml to content_main2 in activity_main
-//                if (c == false) {
-//                    image1.animate().translationX(400).withStartAction(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            image2.setTranslationX(image1.getWidth());
-//                        }
-//                    });
-//
-//                    c = true;
-//                } else if (c == true) {
-//                    image1.animate().alpha(1f).x(50).y(50).setDuration(1000);
-//                    image2.animate().alpha(1f).x(50).y(500).setDuration(1000);
-//                    c = false;
-//                }
-
-                //example #7     change content_main.xml to content_main3 in activity_main
-//                viewGroup.addView(new Button(MainActivity.this));
 
             }
         });
+    }
+    private void example11() {
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(c == false) {
+//                    image1.animate().translationX(400).setDuration(1000).withLayer();
+                    image1.animate().translationX(-150).setDuration(400).withLayer();
+                    image2.animate().translationX(-150).setDuration(300).withLayer();
+                    image3.animate().translationX(-150).setDuration(200).withLayer();
+                    image4.animate().translationX(-150).setDuration(100).withLayer();
 
+                    c= true;
+                }
 
+                else if(c == true){
+//                    image1.animate().translationX(50).setDuration(1000).withLayer();
+                    image1.animate().translationX(0).setDuration(100).withLayer();
+                    image2.animate().translationX(0).setDuration(200).withLayer();
+                    image3.animate().translationX(0).setDuration(300).withLayer();
+                    image4.animate().translationX(0).setDuration(400).withLayer();
+                    c=false;
+                }
+
+            }
+        });
     }
 
     private void startAnimation() {
@@ -301,7 +420,6 @@ public class MainActivity extends AppCompatActivity implements Frag1.changeImage
             frag2.setSharedElementReturnTransition(transition1);
             frag2.setAllowEnterTransitionOverlap(false);
             frag2.setAllowReturnTransitionOverlap(false);
-
             frag2.setImageId(imageView.getTransitionName());
 
 //            getSupportFragmentManager()
