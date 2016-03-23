@@ -2,12 +2,11 @@ package com.example.omii026.sqliteexample.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.omii026.sqliteexample.ui.Contact;
+import com.example.omii026.sqliteexample.Classes.Contact;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Database Version
     private static final int DATABASE_VERSION = 1;
-
+    public static DatabaseHandler ourInstance;
     // Database Name
     private static final String DATABASE_NAME = "contactsManager";
 
@@ -29,6 +28,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_PH_NO = "phone_number";
+
+    public static DatabaseHandler getInstance (){
+        return ourInstance;
+    }
+
+    public static void setInstance(Context context){
+        ourInstance = new DatabaseHandler(context);
+    }
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

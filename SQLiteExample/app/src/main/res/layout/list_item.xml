@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="3dp"
+    android:layout_marginLeft="10dp"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -20,6 +20,7 @@
         <TextView
             android:id="@+id/tvPhone"
             android:text="0342"
+            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

@@ -1,4 +1,4 @@
-package com.example.omii026.sqliteexample.ui;
+package com.example.omii026.sqliteexample.Classes;
 
 /**
  * Created by Omii026 on 3/22/2016.
@@ -9,6 +9,7 @@ public class Contact {
     int _id;
     String _name;
     String _phone_number;
+    boolean isCheck;
 
 
     // Empty constructor
@@ -55,5 +56,13 @@ public class Contact {
     // setting phone number
     public void setPhoneNumber(String phone_number){
         this._phone_number = phone_number;
+    }
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setCheck(boolean check) {
+        isCheck = check;
     }
 }
