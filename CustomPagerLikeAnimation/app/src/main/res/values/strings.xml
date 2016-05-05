@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CustomPagerLikeAnimation</string>
+    <string name="card_position_x">120</string>
+
+</resources>
