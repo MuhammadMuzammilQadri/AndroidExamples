@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.appiskey.android.dragtest.MainActivity">
+
+    <ImageView
+        android:id="@+id/IV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button"
+        android:scaleType="fitXY"
+        android:src="@drawable/image" />
+
+
+    <View
+        android:id="@+id/v1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#880000ff" />
+
+    <View
+        android:id="@+id/v2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="200dp"
+        android:background="#88ff0000" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="test" />
+
+</RelativeLayout>
