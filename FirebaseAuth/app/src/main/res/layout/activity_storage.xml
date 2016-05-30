@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/browseImage"
+            android:text="browse image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/uploadImage"
+            android:layout_alignParentRight="true"
+            android:text="upload image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_below="@id/browseImage"
+            android:id="@+id/uploadedImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/downloadImage"
+            android:text="download Image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_below="@id/downloadImage"
+            android:id="@+id/downloadedImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+    </RelativeLayout>
+
+    <View
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/browseFile"
+            android:text="browse File"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/uploadFile"
+            android:layout_alignParentRight="true"
+            android:text="upload File"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_below="@id/browseFile"
+            android:text="uploaded File name"
+            android:id="@+id/uploadedFilename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/downloadFile"
+            android:text="download File"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_below="@id/downloadFile"
+            android:text="downloadedFilename"
+            android:id="@+id/downloadedFilename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.umairomii.firebaseauth;
+package com.example.umairomii.firebaseauth.Authentication;
 
 
 import android.app.Activity;
@@ -14,10 +14,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.umairomii.firebaseauth.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,6 +41,7 @@ public class AuthFragment extends Fragment {
     private FramentInteractionlistener listener;
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
 
     public AuthFragment() {
@@ -68,7 +71,7 @@ public class AuthFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_blank, container, false);
+        View view =  inflater.inflate(R.layout.fragment_auth, container, false);
 
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -81,10 +84,24 @@ public class AuthFragment extends Fragment {
         Button signUp = (Button) view.findViewById(R.id.signupButton);
         Button signIn = (Button) view.findViewById(R.id.signinButton);
 
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                if(firebaseUser != null){
+                    Log.d("User:","onAuthStateChanged:signed_in:"+firebaseUser.getUid());
+                }else {
+                    // User is signed out
+                    Log.d("User:", "onAuthStateChanged:signed_out");
+                }
+
+            }
+        };
+
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-
+                final ProgressDialog progressDialog = ProgressDialog.show(getContext(),"","wait..",false);
                 String userEmail = email.getText().toString();
                 String userPass = pass.getText().toString();
 
@@ -94,7 +111,7 @@ public class AuthFragment extends Fragment {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
-
+                            progressDialog.dismiss();
                             if(!task.isSuccessful()){
                                 Snackbar.make(v,"error signUp",Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                             }else {
@@ -114,26 +131,40 @@ public class AuthFragment extends Fragment {
                 String userEmail = signInemail.getText().toString();
                 String userPass = signInpass.getText().toString();
 
-                if(!userEmail.equals("") && !userPass.equals("")) {
-                    Log.d("TAG2", userEmail + " " + userPass);
-                    mAuth.signInWithEmailAndPassword(userEmail, userPass).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    Log.d("TAG2", signInemail.getText().toString() + " " + signInpass.getText().toString());
+                    mAuth.signInWithEmailAndPassword(signInemail.getText().toString(),signInpass.getText().toString()).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             progressDialog.dismiss();
                             if (!task.isSuccessful()) {
-                                Snackbar.make(v, "error signIn", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                                Snackbar.make(v, "error signIn", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                                 Log.d("exception ", task.getException().toString() + "");
                             } else {
-                                Snackbar.make(v, "success signIn", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                                Snackbar.make(v, "success signIn", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                             }
                         }
                     });
-                }
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d("onStart ", "onStart called");
+        mAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d("onStop ", "onStop called");
+        if(authStateListener != null){
+            mAuth.removeAuthStateListener(authStateListener);
+        }
     }
 
     public interface FramentInteractionlistener{

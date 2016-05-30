@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.umairomii.firebaseauth.CloudMessaging.CloudMesgActivity;
+import com.example.umairomii.firebaseauth.Storage.StorageActivity;
+import com.google.firebase.crash.FirebaseCrash;
+
 /**
  * Created by umairomii on 5/26/16.
  */
@@ -30,6 +34,7 @@ public class Frag1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view  =  inflater.inflate(R.layout.login_frag,container,false);
+        FirebaseCrash.report(new Exception("My first Android non-fatal error"));
 
         Button auth = (Button) view.findViewById(R.id.auth);
         auth.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +49,15 @@ public class Frag1 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),CloudMesgActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Button stroage = (Button) view.findViewById(R.id.Storage);
+        stroage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),StorageActivity.class);
                 startActivity(i);
             }
         });

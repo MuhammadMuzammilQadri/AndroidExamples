@@ -1,4 +1,4 @@
-package com.example.umairomii.firebaseauth;
+package com.example.umairomii.firebaseauth.CloudMessaging;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,6 +9,8 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.example.umairomii.firebaseauth.MainActivity;
+import com.example.umairomii.firebaseauth.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -22,8 +24,9 @@ public class MessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 //        super.onMessageReceived(remoteMessage);
-        Log.d("TAG", "Notification Message Body: " + remoteMessage.getNotification().getBody());
+        Log.d("MessagingService", "Notification Message Body: " + remoteMessage.getNotification().getBody());
         message = remoteMessage.getFrom() +": "+ remoteMessage.getNotification().getBody();
+        sendNotification(message);
     }
 
 

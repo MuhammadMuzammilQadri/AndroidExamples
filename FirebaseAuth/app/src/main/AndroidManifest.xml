@@ -3,6 +3,7 @@
     package="com.example.umairomii.firebaseauth">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -21,19 +22,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CloudMesgActivity"
+            android:name=".CloudMessaging.CloudMesgActivity"
             android:label="@string/title_activity_loud_mesg"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".Storage.StorageActivity"
+            android:label="@string/title_activity_storage"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <service
-            android:name=".MessagingService">
+            android:name=".CloudMessaging.MessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
 
         <service
-            android:name=".InstanceIdService">
+            android:name=".CloudMessaging.InstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
