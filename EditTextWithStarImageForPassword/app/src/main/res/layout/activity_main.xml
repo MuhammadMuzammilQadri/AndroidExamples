@@ -1,0 +1,71 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+
+
+            <EditText
+                android:id="@+id/ET1"
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:singleLine="true"
+                android:maxLength="1"
+                android:inputType="number"
+                android:background="@drawable/round" >
+            </EditText>
+
+
+
+            <EditText
+                android:id="@+id/ET2"
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:singleLine="true"
+                android:maxLength="1"
+                android:inputType="number"
+                android:background="@drawable/round" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/ET3"
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:singleLine="true"
+                android:maxLength="1"
+                android:inputType="number"
+                android:background="@drawable/round" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/ET4"
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:singleLine="true"
+                android:maxLength="1"
+                android:inputType="number"
+                android:background="@drawable/round"  >
+            </EditText>
+
+        </TableRow>
+
+    </TableLayout>
+
+
+
+
+
+
+</LinearLayout>

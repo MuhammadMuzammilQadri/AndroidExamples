@@ -29,7 +29,7 @@
 
 
     <!--</LinearLayout>-->
-    <include layout="@layout/content_main4"/>
+    <include layout="@layout/content_main2"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
