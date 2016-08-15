@@ -9,8 +9,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.muhammadmuzammil.callblocker.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_margin="15dp"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number:"/>
+
+        <EditText
+            android:id="@+id/blockNumberET"
+            android:layout_below="@id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Number To Block.."
+            android:text="03403903894"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:maxLines="1"
+            android:maxLength="30"/>
+
+        <Button
+            android:id="@+id/setButton"
+            android:layout_width="wrap_content"
+            android:layout_height="38sp"
+            android:text="Set"
+            android:textSize="15sp"
+            android:background="#0000ff"
+            android:layout_below="@id/blockNumberET"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
 </RelativeLayout>
