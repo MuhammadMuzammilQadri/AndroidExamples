@@ -1,8 +1,10 @@
 package com.example.muhammadmuzammil.callblocker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText blockNumberET;
     Button setButton;
+    Button removeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         blockNumberET = (EditText) findViewById(R.id.blockNumberET);
         setButton = (Button) findViewById(R.id.setButton);
+        removeButton = (Button) findViewById(R.id.removeButton);
+
         setButton.setEnabled(blockNumberET.getText().toString().trim().length() > 0);
 
         blockNumberET.addTextChangedListener(new TextWatcher() {
@@ -55,8 +60,46 @@ public class MainActivity extends AppCompatActivity {
                 BlockNumbersHandler.getInstance().setBlockedNumber(number);
                 Toast.makeText(MainActivity.this, "Number set", Toast.LENGTH_SHORT).show();
                 blockNumberET.setText("");
+                forwardCall();
 
             }
         });
+
+        removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeForwardCall();
+            }
+        });
+    }
+
+
+    private void forwardCall() {
+
+        String forwadingCode = "**67*";
+        String forwardingNumber = "4073216182#";
+
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse(String.format("tel:%s", Uri.encode(forwadingCode+forwardingNumber))));
+//        intent.setData(Uri.parse("tel:"+forwadingCode+forwardingNumber));
+        try {
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void removeForwardCall() {
+
+        String forwadingCode = "##67#";
+
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse(String.format("tel:%s", Uri.encode(forwadingCode))));
+        try {
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
