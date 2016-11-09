@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "290413498535",
+    "project_id": "trans-setup-146709"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:290413498535:android:19454b7eea10c816",
+        "android_client_info": {
+          "package_name": "com.example.muzamil.navigationtestingsample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYQb0kgeFDaDhZTqThkP5j6Y5M7oN3MWk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-87032492-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

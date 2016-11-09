@@ -18,9 +18,10 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabMinWidth="120dp"
         app:tabMode="scrollable"
-        app:tabIndicatorHeight="0dp"
         app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
         app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
         app:tabSelectedTextColor="#ffffffff"
         app:tabTextColor="#66ffffff" />

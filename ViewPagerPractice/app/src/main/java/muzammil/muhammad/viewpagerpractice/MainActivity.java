@@ -44,6 +44,9 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onPageSelected(int position) {
                 tabLayout.getTabAt(position).select();
+//                tabLayout.setSmoothScrollingEnabled(true);
+//                tabLayout.setScrollPosition(position, 0f, true);
+
             }
         });
     }
@@ -105,21 +108,21 @@ public class MainActivity extends FragmentActivity {
         tabLayout.addTab(tabLayout.newTab().setText("News"),0);
         tabLayout.addTab(tabLayout.newTab().setText("Settings"),1);
         tabLayout.addTab(tabLayout.newTab().setText("Factory"),2);
-        tabLayout.addTab(tabLayout.newTab().setText("     "),3);
-        tabLayout.getTabAt(0).select();
+//        tabLayout.addTab(tabLayout.newTab().setText("     "),3);
+//        tabLayout.getTabAt(0).select();
 
     }
 
     private static void SetupTabStrip(TabLayout tabLayout) {
         LinearLayout tabStrip = ((LinearLayout)tabLayout.getChildAt(0));
         tabStrip.setBackgroundColor(0x000000);
-        tabStrip.getChildAt(3).setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                Log.i("MuzammilQadri", "Tab Touched..");
-                return true;
-            }
-        });
+//        tabStrip.getChildAt(3).setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                Log.i("MuzammilQadri", "Tab Touched..");
+//                return true;
+//            }
+//        });
     }
 
 }

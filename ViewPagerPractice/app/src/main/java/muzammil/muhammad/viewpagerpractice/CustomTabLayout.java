@@ -8,15 +8,21 @@ package muzammil.muhammad.viewpagerpractice;
 import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 public class CustomTabLayout extends TabLayout {
+    DisplayMetrics displaymetrics = new DisplayMetrics();
+
     public CustomTabLayout(Context context) {
         super(context);
     }
@@ -28,6 +34,20 @@ public class CustomTabLayout extends TabLayout {
     public CustomTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return true;
+    }
+
+
+//    @Override
+//    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+//        super.onLayout(changed, l, t, r, b);
+//        View firstTab = ((ViewGroup)getChildAt(0)).getChildAt(0);
+//        View lastTab = ((ViewGroup)getChildAt(0)).getChildAt(((ViewGroup)getChildAt(0)).getChildCount()-1);
+//        ViewCompat.setPaddingRelative(getChildAt(0), (getWidth() / 2) - (firstTab.getWidth() / 2), 0, (getWidth() / 2) - (lastTab.getWidth() / 2), 0);
+//    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -52,7 +72,6 @@ public class CustomTabLayout extends TabLayout {
 //                Field tempField = TabLayout.class.getDeclaredField("mTabMaxWidth");
 //                tempField.setAccessible(true);
 //                int temp = tempField.getInt(this);
-            DisplayMetrics displaymetrics = new DisplayMetrics();
             ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
             int width = displaymetrics.widthPixels;
 
