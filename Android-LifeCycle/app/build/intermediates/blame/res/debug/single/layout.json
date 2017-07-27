@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "G:\\GitProjects\\AndroidExamples\\Android-LifeCycle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_b.xml",
+        "source": "G:\\GitProjects\\AndroidExamples\\Android-LifeCycle\\app\\src\\main\\res\\layout\\activity_b.xml"
+    },
+    {
+        "merged": "G:\\GitProjects\\AndroidExamples\\Android-LifeCycle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_c.xml",
+        "source": "G:\\GitProjects\\AndroidExamples\\Android-LifeCycle\\app\\src\\main\\res\\layout\\activity_c.xml"
+    },
+    {
+        "merged": "G:\\GitProjects\\AndroidExamples\\Android-LifeCycle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_a.xml",
+        "source": "G:\\GitProjects\\AndroidExamples\\Android-LifeCycle\\app\\src\\main\\res\\layout\\activity_a.xml"
+    },
+    {
+        "merged": "G:\\GitProjects\\AndroidExamples\\Android-LifeCycle\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_dialog.xml",
+        "source": "G:\\GitProjects\\AndroidExamples\\Android-LifeCycle\\app\\src\\main\\res\\layout\\activity_dialog.xml"
+    }
+]
