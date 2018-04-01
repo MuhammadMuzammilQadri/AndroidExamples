@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.muzammil.roomsample.MainActivity">
+
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            app:layout_constraintBottom_toBottomOf="@+id/name_et"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/name_et"
+            app:layout_constraintTop_toTopOf="@+id/name_et" />
+
+        <EditText
+            android:id="@+id/name_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:minWidth="80dp"
+            app:layout_constraintBottom_toTopOf="@+id/parentname_et"
+            app:layout_constraintLeft_toRightOf="@+id/name_tv"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/parentname_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parent Name:"
+            app:layout_constraintBottom_toBottomOf="@+id/parentname_et"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/parentname_et"
+            app:layout_constraintTop_toTopOf="@+id/parentname_et" />
+
+        <EditText
+            android:id="@+id/parentname_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:minWidth="80dp"
+            app:layout_constraintBottom_toTopOf="@+id/age_et"
+            app:layout_constraintLeft_toRightOf="@+id/parentname_tv"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_et" />
+
+        <TextView
+            android:id="@+id/age_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age:"
+            app:layout_constraintBottom_toBottomOf="@+id/age_et"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/age_et"
+            app:layout_constraintTop_toTopOf="@+id/age_et" />
+
+        <EditText
+            android:id="@+id/age_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:minWidth="80dp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollview"
+            app:layout_constraintLeft_toRightOf="@+id/age_tv"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toTopOf="@+id/submit_button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/age_et">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/no_data_found" />
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
